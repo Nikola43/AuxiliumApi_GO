@@ -42,7 +42,13 @@ var routes = Routes{
 	Route{
 		"getUser",
 		"GET",
-		"/users/{id}",
+		"/users/{ID}",
 		getUser,
+	},
+	Route{
+		"signupUser",
+		"POST",
+		"/users/signup",
+		signupUser,
 	},
 }
