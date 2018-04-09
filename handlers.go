@@ -17,7 +17,7 @@ func homePage(w http.ResponseWriter, r *http.Request) {
 func getAllUsers(w http.ResponseWriter, r *http.Request) {
 	// Open up our database connection.
 	//db, err := sql.Open("mysql", "user:password@tcp(hostIP:port)/database")
-	db, err := sql.Open("mysql", "root:@tcp(127.0.0.1:3306)/auxilium_db")
+	db, err := sql.Open("mysql", "auxilium:-Gdeuapmw18@tcp(127.0.0.1:3306)/auxilium")
 
 	// if there is an error opening the connection, handle it
 	if err != nil {
@@ -25,7 +25,7 @@ func getAllUsers(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Execute the query
-	results, err := db.Query("SELECT * FROM users")
+	results, err := db.Query("SELECT * FROM Users")
 	if err != nil {
 		panic(err.Error()) // proper error handling instead of panic in your app
 	}
@@ -52,7 +52,7 @@ func getUser(w http.ResponseWriter, r *http.Request) {
 
 	// Open up our database connection.
 	//db, err := sql.Open("mysql", "user:password@tcp(hostIP:port)/database")
-	db, err := sql.Open("mysql", "root:@tcp(127.0.0.1:3306)/auxilium_db")
+	db, err := sql.Open("mysql", "auxilium:-Gdeuapmw18@tcp(127.0.0.1:3306)/auxilium")
 
 	// if there is an error opening the connection, handle it
 	if err != nil {
@@ -60,7 +60,7 @@ func getUser(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Execute the query
-	results, err := db.Query("SELECT * FROM users where ID = "+ID)
+	results, err := db.Query("SELECT * FROM Users where ID = "+ID)
 	if err != nil {
 		panic(err.Error()) // proper error handling instead of panic in your app
 	}
@@ -90,7 +90,7 @@ func signupUser(w http.ResponseWriter, r *http.Request) {
 
 	// Open up our database connection.
 	//db, err := sql.Open("mysql", "user:password@tcp(hostIP:port)/database")
-	db, err := sql.Open("mysql", "root:@tcp(127.0.0.1:3306)/auxilium_db")
+	db, err := sql.Open("mysql", "auxilium:-Gdeuapmw18@tcp(127.0.0.1:3306)/auxilium")
 
 	// if there is an error opening the connection, handle it
 	if err != nil {
@@ -98,7 +98,7 @@ func signupUser(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Execute the query
-	results, err := db.Query("INSERT INTO users VALUES (7, '"+user.LastName+"', '"+user.FirstName+"', '"+user.IdentificationDocument+"', '"+user.Email+"', '"+user.Passwd+"')")
+	results, err := db.Query("INSERT INTO Users VALUES (0, '"+user.LastName+"', '"+user.FirstName+"', '"+user.IdentificationDocument+"', '"+user.Email+"', '"+user.Passwd+"')")
 	if err != nil {
 		panic(err.Error()) // proper error handling instead of panic in your app
 	}
